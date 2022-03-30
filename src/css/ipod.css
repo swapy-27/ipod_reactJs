@@ -1,0 +1,12 @@
+.ipod{
+    height:500px;
+    width:300px;
+    border: 1px solid black;
+    margin-top: 50px;
+    padding: 10px 5px;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
