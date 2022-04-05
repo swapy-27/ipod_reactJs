@@ -1,12 +1,20 @@
 .ipod{
-    height:500px;
-    width:300px;
-    border: 1px solid black;
-    margin-top: 50px;
-    padding: 10px 5px;
-    background-color: lightgray;
-    display: flex;
+    height:600px;
+    width:370px;
+    border : 1px solid black;
+    border-radius: 20px;
+    box-shadow: 0 0 16px black;
+    box-sizing: border-box;
+    padding: 10px 10px;
+}
+.flex_coloumn{
+    display:flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+}
+.flex_row{
+    height:370px;
+    width: 580px;
+    display: flex;
     justify-content: space-between;
 }

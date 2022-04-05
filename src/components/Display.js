@@ -1,27 +1,17 @@
 import '../css/display.css';
-import Menu from '../components/Menu';
 import React from 'react';
-class Display extends React.Component {
-    constructor() {
-        super();
+import Menu from './Menu';
 
-        this.state = {
-            menu: ['Cover Flow', 'Music', 'Games', 'Settings'],
-            music: ['All Songs', 'Artists', 'Albums']
-        }
-
-    }
-
-
-
-    render() {
-        const {menu,music} = this.state;
-        return (
-            <div className='display'>
-                <Menu menu={menu}/>
-            </div>
-        )
-    }
+const Display = (props)=>{
+  
+    return (
+        <div className='display'>
+                <div className='menu_container'>
+                    <Menu state={props.state}/>
+                </div>
+           
+        </div>
+    )
 }
 
 export default Display;

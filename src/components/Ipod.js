@@ -1,16 +1,16 @@
-import  '../css/ipod.css'
-import Display  from '../components/Display';
-import Navigation  from '../components/Navigation';
-const  Ipod =()=>{
+import '../css/Ipod.css';
+import React from 'react';
+import Navigation from './Navigation';
+import Display from './Display';
 
-return (
-    <div className='ipod'>
-        
-        <Display/>
-        <Navigation/>
-    </div>
-);
-
-
+const Ipod = (props)=>{
+    
+    return (
+        <div className='ipod flex_coloumn'>
+            <Display state={props.state} />
+            <Navigation handleRotate={props.handleRotate}/>
+        </div>
+    )
 }
+
 export default Ipod;

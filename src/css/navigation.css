@@ -1,17 +1,62 @@
 .navigation{
-    height: 190px;
-    width:190px;
-    border:  1px solid black;
+    position: relative;
+    height:250px;
+    width:350px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+.circular_navbar{
+    position: relative;
+    cursor: pointer;
+    height: 220px;
+    width:220px;
     border-radius: 50%;
-    background-color: white;
+    background-color: grey;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 .inner_circle{
-    height:70px;
-    width: 70px;
-    border:  1px solid black;
+    width:100px;
+    height:100px;
     border-radius: 50%;
+    color:azure;
     background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.rotate_button{
+    cursor: pointer;
+    position: absolute;
+    right:0;
+    top:0;
+    height:22px;
+    width: 22px;
+    border-radius:50%;
+}
+
+.nav_buttons{
+    position:absolute;
+    padding:5px;
+
+}
+.nav_buttons > i{
+    color: white;
+    font-size: x-large;    
+}
+.top_button{
+    top:20px
+}
+.left_button{
+    left:20px;
+}
+.right_button{
+    right:20px;
+}
+.bottom_button{
+    bottom: 20px;
 }

@@ -1,14 +1,7 @@
 .display{
-    height:60%;
-    width:100%;
-    border:1px solid black;
-    background-image: url('../assets/display_background.jpg');
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content:flex-start
-}
-.display>h1{
-    color: whitesmoke;
+    box-sizing: border-box;
+    height:350px;
+    width:350px;
+    border: 1px solid black;
+    border-radius: 20px;
 }
