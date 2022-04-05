@@ -8,6 +8,7 @@
     
 }
 .circular_navbar{
+    touch-action: auto;
     position: relative;
     cursor: pointer;
     height: 220px;

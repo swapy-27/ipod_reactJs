@@ -2,7 +2,7 @@ import React from "react";
 function handleMenuClick(calledFunction){
     console.log(calledFunction)
 }
-const  Menu_comp =(props)=> {
+const  Menucomp =(props)=> {
         return (
             <div className="menu_components" onClick={()=>{handleMenuClick(props.item)}}>
                 {props.item}
@@ -11,4 +11,4 @@ const  Menu_comp =(props)=> {
         )
 }
 
-export default Menu_comp;
+export default Menucomp;

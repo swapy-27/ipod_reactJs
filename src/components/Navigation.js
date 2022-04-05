@@ -1,23 +1,16 @@
 import '../css/navigation.css';
 import React from 'react';
-function handleMenuButton(){
-    const menuBar = document.getElementsByClassName('menu_bar');
-    if(menuBar[0].classList.contains('non_visible')){
-        menuBar[0].classList.remove('non_visible')
-    }
-    else{
-        menuBar[0].classList.add('non_visible')
-    }
-}
-const Navigation = (props) => {
 
+
+
+const Navigation = (props) => {
     return(
         <div className='navigation'>
 
-            <div className='circular_navbar'>
+            <div className='circular_navbar' >
 
-                <div className='top_button nav_buttons' onClick={handleMenuButton}>
-                    <i class="fa-solid fa-bars"></i>
+                <div className='top_button nav_buttons' onClick={props.handleMenuButton} >
+                    <i class="fa-solid fa-bars" ></i>
                 </div>
                 <div className='left_button nav_buttons'>
                     <i class="fa-solid fa-backward"></i>

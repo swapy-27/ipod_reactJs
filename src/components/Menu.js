@@ -1,14 +1,13 @@
 import React from "react";
 import '../css/menu.css'
-import Menu_comp from "./Menu_comp";
+import Menucomp from "./Menucomp";
 
 
 const Menu = (props) => {
   const music = props.state.music;
   const menu = props.state.menu;
+
   return (
-
-
     <div className="menu_bar non_visible">
       <div className="menu_header">
         Ipod
@@ -16,7 +15,7 @@ const Menu = (props) => {
       <div className="menu_content">
         {menu.map(
           (item) => {
-            return <Menu_comp item={item} />
+            return <Menucomp item={item} />
           }
 
         )}
@@ -25,4 +24,4 @@ const Menu = (props) => {
     </div>
   )
 }
-export default Menu
+export default Menu;
