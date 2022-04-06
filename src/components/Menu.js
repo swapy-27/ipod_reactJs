@@ -4,7 +4,7 @@ import Menucomp from "./Menucomp";
 
 
 const Menu = (props) => {
-  const music = props.state.music;
+  // const music = props.state.music;
   const menu = props.state.menu;
 
   return (

@@ -6,11 +6,12 @@ class App extends React.Component {
 
   constructor() {
     super();
-    this.change_in_angle =Number(0) ;
+    this.change_in_angle = Number(0);
+    this.curr_ele = 0;
     this.state = {
 
       menu: ['Games', 'Music', 'Settings', 'CoverFlow'],
-      music: ['AllSongs', 'Artists', 'Albums']
+      music: ['AllSongs', 'Artists', 'Albums'],
     }
   }
   handleRotateButton() {
@@ -26,40 +27,97 @@ class App extends React.Component {
 
   }
 
-   handleMenuButton(){
+  handleMenuButton() {
     const menuBar = document.getElementsByClassName('menu_bar');
-    if(menuBar[0].classList.contains('non_visible')){
-        menuBar[0].classList.remove('non_visible')
+    if (menuBar[0].classList.contains('non_visible')) {
+      menuBar[0].classList.remove('non_visible')
     }
-    else{
-        menuBar[0].classList.add('non_visible')
+    else {
+      menuBar[0].classList.add('non_visible')
     }
-}
+  }
   componentDidMount() {
     var containerElement = document.getElementsByClassName('circular_navbar')[0];
     var activeRegion = ZingTouch.Region(containerElement);
-    activeRegion.bind(containerElement, 'rotate',  (event) => {
+    var next = 0;
+    activeRegion.bind(containerElement, 'rotate', (event) => {
       event.preventDefault();
+      var menuComp = document.getElementsByClassName('menu_components');
+      menuComp[this.curr_ele].classList.add('current_hovering_comp');
       let dist = Math.floor(event.detail.distanceFromLast);
       this.change_in_angle += dist;
+
       if (this.change_in_angle > 60) {
-        console.log('hey')
-        this.change_in_angle = 0;
+
+        if (this.curr_ele < menuComp.length - 1) {
+          next = this.curr_ele + 1;
+          this.setState(
+            () => {
+              menuComp[this.curr_ele].classList.remove('current_hovering_comp');
+
+            }
+          )
+          menuComp[next].classList.add('current_hovering_comp');
+        }
+        else {
+          next = 0;
+          this.setState(
+            () => {
+              menuComp[this.curr_ele].classList.remove('current_hovering_comp');
+
+            }
+          )
+          menuComp[next].classList.add('current_hovering_comp');
+
+        }
+        this.setState(
+          () => {
+
+            this.curr_ele = next;
+            this.change_in_angle = 0;
+          }
+        )
+
       }
       else if (this.change_in_angle < -60) {
-        
-        this.change_in_angle = 0;
+
+        if (this.curr_ele === 0) {
+
+          next = menuComp.length - 1;
+        }
+        else {
+          next = this.curr_ele - 1
+        }
+
+
+        this.setState(
+          () => {
+            menuComp[this.curr_ele].classList.remove('current_hovering_comp');
+
+          }
+
+        )
+        menuComp[next].classList.add('current_hovering_comp');
+        this.setState(
+          () => {
+
+            this.curr_ele = next;
+            this.change_in_angle = 0;
+          }
+        )
       }
     });
-
-  }
-  render() {
-    return (
-      <div className="App">
-        <Ipod state={this.state} handleRotate={this.handleRotateButton} handleMenuButton={this.handleMenuButton} />
-      </div>
-    );
-  }
+}
+handleSelectButton= ()=> {
+  console.log(this.state.menu[this.curr_ele])
+}
+render() {
+  return (
+    <div className="App">
+      <Ipod state={this.state} handleRotate={this.handleRotateButton} handleMenuButton={this.handleMenuButton} handleSelectButton={this.handleSelectButton}  />
+    </div>
+  );
+}
 
 }
 

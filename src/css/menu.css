@@ -34,9 +34,11 @@
     justify-content: space-evenly;
     height:67.5px;
     width:100%;
-    border-bottom: 2px solid black;
+    border-top: 2px solid black;
 }
-
+.current_hovering_comp{
+    background-color: blanchedalmond;
+}
 .non_visible{
     visibility: collapse;
 }

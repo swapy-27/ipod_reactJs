@@ -4,7 +4,9 @@ import React from 'react';
 
 
 const Navigation = (props) => {
+    console.log(props)
     return(
+       
         <div className='navigation'>
 
             <div className='circular_navbar' >
@@ -22,7 +24,7 @@ const Navigation = (props) => {
                 <i class="fa-solid fa-play"></i>
                 <i class="fa-solid fa-pause"></i>
                 </div>
-                <div className='inner_circle' >
+                <div className='inner_circle' onClick={props.handleSelectButton} >
                     <h2>Select</h2>
                 </div>
             </div>
