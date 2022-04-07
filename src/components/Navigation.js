@@ -4,7 +4,7 @@ import React from 'react';
 
 
 const Navigation = (props) => {
-    console.log(props)
+    
     return(
        
         <div className='navigation'>

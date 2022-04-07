@@ -1,6 +1,7 @@
 .menu_bar{
+    position: absolute;
     width:45%;
-    min-height:350px;
+    max-height:350px;
     height:100%;
     box-sizing: border-box;
     background-color: cadetblue;

@@ -9,7 +9,7 @@ class App extends React.Component {
     this.change_in_angle = Number(0);
     this.curr_ele = 0;
     this.state = {
-
+      showPage:-1,
       menu: ['Games', 'Music', 'Settings', 'CoverFlow'],
       music: ['AllSongs', 'Artists', 'Albums'],
     }
@@ -105,16 +105,24 @@ class App extends React.Component {
             this.change_in_angle = 0;
           }
         )
+       
       }
     });
 }
 handleSelectButton= ()=> {
-  console.log(this.state.menu[this.curr_ele])
+ 
+  this.setState(
+   {
+      showPage:this.curr_ele
+  }
+  )
+  this.handleMenuButton();
+  
 }
 render() {
   return (
     <div className="App">
-      <Ipod state={this.state} handleRotate={this.handleRotateButton} handleMenuButton={this.handleMenuButton} handleSelectButton={this.handleSelectButton}  />
+      <Ipod curr_ele={this.curr_ele} showPage={this.state.showPage} state={this.state} handleRotate={this.handleRotateButton} handleMenuButton={this.handleMenuButton} handleSelectButton={this.handleSelectButton}  />
     </div>
   );
 }
