@@ -1,5 +1,7 @@
 .menu_bar{
     position: absolute;
+    top:0;
+    left: 0;
     width:45%;
     max-height:350px;
     height:100%;

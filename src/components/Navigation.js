@@ -4,7 +4,7 @@ import React from 'react';
 
 
 const Navigation = (props) => {
-    
+  
     return(
        
         <div className='navigation'>
@@ -14,7 +14,7 @@ const Navigation = (props) => {
                 <div className='top_button nav_buttons' onClick={props.handleMenuButton} >
                     <i class="fa-solid fa-bars" ></i>
                 </div>
-                <div className='left_button nav_buttons'>
+                <div className='left_button nav_buttons' onClick={props.handleLeftButton}>
                     <i class="fa-solid fa-backward"></i>
                 </div>
                 <div className='right_button nav_buttons'>

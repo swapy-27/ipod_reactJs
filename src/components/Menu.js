@@ -4,21 +4,28 @@ import Menucomp from "./Menucomp";
 
 
 const Menu = (props) => {
-  // const music = props.state.music;
+  const music = props.state.music;
   const menu = props.state.menu;
-
   return (
     <div className="menu_bar non_visible">
       <div className="menu_header">
         Ipod
       </div>
       <div className="menu_content">
-        {menu.map(
+
+        {props.state.show_music_page===true ? music.map(
           (item) => {
             return <Menucomp item={item} />
           }
 
-        )}
+        ):''}
+
+        {props.state.show_music_page===false ?menu.map(
+          (item) => {
+            return <Menucomp item={item} />
+          }
+
+        ):''}
       </div>
 
     </div>

@@ -5,4 +5,28 @@
     width:350px;
     border: 1px solid black;
     border-radius: 20px;
+    padding:10px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.display_component
+{
+    box-sizing: border-box;
+    height:300px;
+    width:300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.display_component_image > i{
+    font-size: xx-large;
+}   
+.display_component_name{
+    font-size: xx-large;
+    font-weight: bold;
 }

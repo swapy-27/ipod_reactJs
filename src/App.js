@@ -9,7 +9,10 @@ class App extends React.Component {
     this.change_in_angle = Number(0);
     this.curr_ele = 0;
     this.state = {
+      show_menu_page:true,
       showPage:-1,
+      music_page:-1,
+      show_music_page:false,
       menu: ['Games', 'Music', 'Settings', 'CoverFlow'],
       music: ['AllSongs', 'Artists', 'Albums'],
     }
@@ -27,7 +30,7 @@ class App extends React.Component {
 
   }
 
-  handleMenuButton() {
+  handleMenuButton=()=> {
     const menuBar = document.getElementsByClassName('menu_bar');
     if (menuBar[0].classList.contains('non_visible')) {
       menuBar[0].classList.remove('non_visible')
@@ -36,93 +39,136 @@ class App extends React.Component {
       menuBar[0].classList.add('non_visible')
     }
   }
-  componentDidMount() {
-    var containerElement = document.getElementsByClassName('circular_navbar')[0];
-    var activeRegion = ZingTouch.Region(containerElement);
-    var next = 0;
-    activeRegion.bind(containerElement, 'rotate', (event) => {
-      event.preventDefault();
-      var menuComp = document.getElementsByClassName('menu_components');
-      menuComp[this.curr_ele].classList.add('current_hovering_comp');
-      let dist = Math.floor(event.detail.distanceFromLast);
-      this.change_in_angle += dist;
+    handleLeftButton=()=>{
 
-      if (this.change_in_angle > 60) {
-
-        if (this.curr_ele < menuComp.length - 1) {
-          next = this.curr_ele + 1;
-          this.setState(
-            () => {
-              menuComp[this.curr_ele].classList.remove('current_hovering_comp');
-
-            }
-          )
-          menuComp[next].classList.add('current_hovering_comp');
+    if(this.state.show_music_page===true){
+     
+      this.setState(
+        {
+          show_music_page:false,
+          show_menu_page:true
         }
-        else {
-          next = 0;
-          this.setState(
-            () => {
-              menuComp[this.curr_ele].classList.remove('current_hovering_comp');
-
-            }
-          )
-          menuComp[next].classList.add('current_hovering_comp');
-
-        }
-        this.setState(
-          () => {
-
-            this.curr_ele = next;
-            this.change_in_angle = 0;
-          }
-        )
-
-      }
-      else if (this.change_in_angle < -60) {
-
-        if (this.curr_ele === 0) {
-
-          next = menuComp.length - 1;
-        }
-        else {
-          next = this.curr_ele - 1
-        }
-
-
-        this.setState(
-          () => {
-            menuComp[this.curr_ele].classList.remove('current_hovering_comp');
-
-          }
-
-        )
-        menuComp[next].classList.add('current_hovering_comp');
-        this.setState(
-          () => {
-
-            this.curr_ele = next;
-            this.change_in_angle = 0;
-          }
-        )
-       
-      }
-    });
-}
+      )
+      
+    }
+  }
+  
 handleSelectButton= ()=> {
  
+ if(this.curr_ele===1){
+  this.setState(
+    {
+      showPage:this.curr_ele,
+      show_music_page:true,
+      show_menu_page:false,
+    }
+  )
+  return;
+ }
+ if(this.state.show_music_page===true){
+   console.log('hey')
+    this.setState(
+      {
+        music_page:this.curr_ele,
+      }
+    )
+    this.handleMenuButton();
+    return;
+ }
   this.setState(
    {
       showPage:this.curr_ele
   }
   )
   this.handleMenuButton();
+ 
   
+}
+componentDidMount() {
+  var containerElement = document.getElementsByClassName('circular_navbar')[0];
+  var activeRegion = ZingTouch.Region(containerElement);
+  var next = 0;
+  activeRegion.bind(containerElement, 'rotate', (event) => {
+    event.preventDefault();
+    var menuComp = document.getElementsByClassName('menu_components');
+    menuComp[this.curr_ele].classList.add('current_hovering_comp');
+    let dist = Math.floor(event.detail.distanceFromLast);
+    this.change_in_angle += dist;
+
+    if (this.change_in_angle > 60) {
+
+      if (this.curr_ele < menuComp.length - 1) {
+        next = this.curr_ele + 1;
+        this.setState(
+          () => {
+            menuComp[this.curr_ele].classList.remove('current_hovering_comp');
+
+          }
+        )
+        menuComp[next].classList.add('current_hovering_comp');
+      }
+      else {
+        next = 0;
+        this.setState(
+          () => {
+            menuComp[this.curr_ele].classList.remove('current_hovering_comp');
+
+          }
+        )
+        menuComp[next].classList.add('current_hovering_comp');
+
+      }
+      this.setState(
+        () => {
+
+          this.curr_ele = next;
+          this.change_in_angle = 0;
+        }
+      )
+
+    }
+    else if (this.change_in_angle < -60) {
+
+      if (this.curr_ele === 0) {
+
+        next = menuComp.length - 1;
+      }
+      else {
+        next = this.curr_ele - 1
+      }
+
+
+      this.setState(
+        () => {
+          menuComp[this.curr_ele].classList.remove('current_hovering_comp');
+
+        }
+
+      )
+      menuComp[next].classList.add('current_hovering_comp');
+      this.setState(
+        () => {
+
+          this.curr_ele = next;
+          this.change_in_angle = 0;
+        }
+      )
+     
+    }
+  });
 }
 render() {
   return (
     <div className="App">
-      <Ipod curr_ele={this.curr_ele} showPage={this.state.showPage} state={this.state} handleRotate={this.handleRotateButton} handleMenuButton={this.handleMenuButton} handleSelectButton={this.handleSelectButton}  />
+      <Ipod 
+      curr_ele={this.curr_ele} 
+      showPage={this.state.showPage} 
+      state={this.state} 
+      handleRotate={this.handleRotateButton} 
+      handleMenuButton={this.handleMenuButton} 
+      handleLeftButton={this.handleLeftButton} 
+      handleSelectButton={this.handleSelectButton}  
+    />
     </div>
   );
 }
