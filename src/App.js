@@ -3,7 +3,7 @@ import './App.css';
 import Ipod from './components/Ipod';
 import ZingTouch from 'zingtouch';
 import db from './firebase'
-
+import { collection, getDocs } from "firebase/firestore";
 class App extends React.Component {
 
   constructor() {
@@ -11,6 +11,7 @@ class App extends React.Component {
     this.change_in_angle = 0;
     this.curr_ele = 0;
     this.state = {
+      songs: null,
       show_menu_page: true,
       menu_Page: -1,
       music_page: -1,
@@ -73,7 +74,7 @@ class App extends React.Component {
       return;
     }
     if (this.state.show_music_page === true) {
-     
+
       this.setState(
         {
           music_page: this.curr_ele,
@@ -91,7 +92,32 @@ class App extends React.Component {
 
 
   }
+  getSongs = async () => {
+
+    const querySnapshot =  (await getDocs(collection(db, "songs"))).docs;
+
+  
+    var songs =[]
+    querySnapshot.map(
+      (doc) => {
+        songs.push(doc.data());
+        return null;
+      }
+    ) 
+  
+    this.setState(
+      {
+        songs: songs
+      }
+    )
+ 
+  }
+
+  handleSongClick = () => {
+    console.log('hey')
+  }
   componentDidMount() {
+    this.getSongs();
     var containerElement = document.getElementsByClassName('circular_navbar')[0];
     var activeRegion = ZingTouch.Region(containerElement);
     var next = 0;
@@ -170,6 +196,7 @@ class App extends React.Component {
         <Ipod
           state={this.state}
           curr_ele={this.curr_ele}
+          handleSongClick={this.handleSongClick}
           handleRotate={this.handleRotateButton}
           handleMenuButton={this.handleMenuButton}
           handleLeftButton={this.handleLeftButton}

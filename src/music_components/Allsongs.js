@@ -1,26 +1,28 @@
-import db from '../firebase'
 
-const handleSongClick=()=>{
+import '../css/music.css'
 
-}
-const allSongs = db
-.collection('')
-.get();
+
 
 const Allsongs = (props)=>{
+  
+    const songs =props.songs
     return (
-        <div className ='music_component'>
-           {
-               allSongs.map(
-                   (song)=>{
-                       return(
-                           <div onClick={this.handleSongClick}>
-                                <h2>song.name</h2>
-                           </div>
-                       )
-                   }
-               )
+      
+        <div className ='music_list'>
+           {    
+
+                songs.map(
+                    (song)=>{
+                        return (
+                            <div className='music_component' onClick={props.handleSongClick}>
+                                {song.name}
+                                </div>
+                        )
+                    }
+                )
+
            }
+                  
         </div>
     )
 }

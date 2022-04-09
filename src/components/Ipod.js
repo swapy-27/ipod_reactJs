@@ -7,8 +7,13 @@ const Ipod = (props)=>{
     
     return (
         <div className='ipod flex_coloumn'>
-            <Display state={props.state} curr_ele={props.curr_ele} showPage={props.state.menu_page}/>
+            <Display 
+            state={props.state} 
+            curr_ele={props.curr_ele} 
+            showPage={props.state.menu_page}  
+            handleSongClick={props.handleSongClick} />
             <Navigation 
+           
             handleLeftButton={props.handleLeftButton}
             handleRotate={props.handleRotate} 
             handleMenuButton={props.handleMenuButton} 
