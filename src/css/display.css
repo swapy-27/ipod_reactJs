@@ -1,5 +1,6 @@
 .display{
     position: relative;
+    background-color: aliceblue;
     box-sizing: border-box;
     height:350px;
     width:350px;
@@ -13,7 +14,7 @@
 }
 
 .display_component
-{
+{  
     box-sizing: border-box;
     height:300px;
     width:300px;
