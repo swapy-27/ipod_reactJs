@@ -8,12 +8,13 @@ const Playscreen = () =>{
                 <div className='song_image'>
 
                 </div>
-                <Audio >
+                
+                <div className='audio_tab'>
                     
-                </Audio>
-
+                </div>
 
             </div>
+            <div><h2>press button to pause/play</h2></div>
         </div>
     )
 }
