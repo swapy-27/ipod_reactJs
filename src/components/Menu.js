@@ -27,7 +27,14 @@ const Menu = (props) => {
 
         ):''}
       </div>
-
+      {
+        props.state.show_music_page===true ?
+        <div className="music_list_bottom">
+        "Press<span><i class="fa-solid fa-backward"></i></span> to go back"
+      </div>
+      :''
+      }
+      
     </div>
   )
 }

@@ -4,6 +4,8 @@ import Ipod from './components/Ipod';
 import ZingTouch from 'zingtouch';
 import db from './firebase'
 import { collection, getDocs } from "firebase/firestore";
+
+
 class App extends React.Component {
 
   constructor() {
@@ -72,17 +74,6 @@ class App extends React.Component {
   }
 
   handleSelectButton = () => {
-
-    if (this.curr_ele === 1) {
-      this.setState(
-        {
-          menu_page: this.curr_ele,
-          show_music_page: true,
-          show_menu_page: false,
-        }
-      )
-      return;
-    }
     if (this.state.show_music_page === true) {
 
       this.setState(
@@ -93,6 +84,17 @@ class App extends React.Component {
       this.handleMenuButton();
       return;
     }
+    if (this.curr_ele === 1) {
+      this.setState(
+        {
+          menu_page: this.curr_ele,
+          show_music_page: true,
+          show_menu_page: false,
+        }
+      )
+      return;
+    }
+   
     this.setState(
       {
         menu_page: this.curr_ele

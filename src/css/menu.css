@@ -6,7 +6,7 @@
     max-height:350px;
     height:100%;
     box-sizing: border-box;
-    background-color: cadetblue;
+    background-color: rgb(135, 135, 135);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     display: flex;
@@ -18,7 +18,8 @@
 .menu_header{
     height:80px;
     border-top-left-radius: 20px;
-    background-color: red;
+    background-color: black;
+    color: white;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -26,7 +27,6 @@
 }
 .menu_content{
     cursor: pointer;
-
     height:270px;
     border-bottom-left-radius: 20px;
 }
@@ -40,8 +40,19 @@
     border-top: 2px solid black;
 }
 .current_hovering_comp{
-    background-color: blanchedalmond;
+    background-color: rgb(255, 155, 4);
 }
 .non_visible{
     visibility: collapse;
+}
+.music_list_bottom{
+    height:91px;
+    font-size: small;
+    border-top: 2px solid black;
+    background-color: rgb(135, 135, 135);
+    color: green;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }

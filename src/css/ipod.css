@@ -4,9 +4,10 @@
     width:370px;
     border : 2px solid black;
     border-radius: 20px;
-    box-shadow: 0 0 16px black;
+    box-shadow: 0 0 16px rgb(72, 71, 71);
     box-sizing: border-box;
     padding: 10px 10px;
+    background: linear-gradient(to top right , rgb(96, 90, 90) , #0d0e0f);
 }
 .flex_coloumn{
     display:flex;
@@ -17,5 +18,6 @@
     height:370px;
     width: 580px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
