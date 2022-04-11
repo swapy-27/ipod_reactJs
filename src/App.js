@@ -16,6 +16,7 @@ class App extends React.Component {
       menu_Page: -1,
       music_page: -1,
       show_music_page: false,
+      show_play_screen:false,
       menu: ['Games', 'Music', 'Settings', 'CoverFlow'],
       music: ['AllSongs', 'Artists', 'Albums'],
     }
@@ -48,6 +49,15 @@ class App extends React.Component {
 
   handleLeftButton = () => {
 
+    if(this.state.show_play_screen===true){
+      this.setState(
+        {
+          show_play_screen:false
+        }
+      )
+      return;
+    }
+
     //we are cheching if music menu is opened then just close it and next time open normal menu
     if (this.state.show_music_page === true) {
 
@@ -58,7 +68,7 @@ class App extends React.Component {
         }
       )
     }
-
+  
   }
 
   handleSelectButton = () => {
@@ -114,7 +124,11 @@ class App extends React.Component {
   }
 
   handleSongClick = () => {
-    console.log('hey')
+    this.setState(
+      {
+        show_play_screen:true
+      }
+    )
   }
   componentDidMount() {
     this.getSongs();
