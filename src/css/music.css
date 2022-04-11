@@ -1,5 +1,13 @@
 .music_list{
-    height:300px;
-    width:100px;
- 
+    justify-content: flex-start;
+    background-color:yellow
+}
+.music_component{
+    height:40px;
+    width:100%;
+    border-bottom: 2px solid black;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
 }

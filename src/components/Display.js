@@ -16,14 +16,14 @@ const Display = (props) => {
             <div className='menu_container'>
 
                 <Menu state={props.state} />
-                {props.state.show_menu_page===true && props.showPage === props.curr_ele && props.curr_ele === 0 ? <Game /> : ''}
+
+            </div>
+            {props.state.show_menu_page===true && props.showPage === props.curr_ele && props.curr_ele === 0 ? <Game /> : ''}
                 {props.state.show_menu_page===true &&props.showPage === props.curr_ele && props.curr_ele === 2 ? <Settings /> : ''}
                 {props.state.show_menu_page===true && props.showPage === props.curr_ele && props.curr_ele === 3 ? <CoverFlow /> : ''}
                 {props.state.show_music_page === true && props.state.music_page === props.curr_ele && props.curr_ele === 0 ? <Allsongs state={props.state} handleSongClick={props.handleSongClick} /> : ''}
                 {props.state.show_music_page === true && props.state.music_page === props.curr_ele && props.curr_ele === 1 ? <Artists /> : ''}
                 {props.state.show_music_page === true && props.state.music_page === props.curr_ele && props.curr_ele === 2 ? <Albums /> : ''}
-
-            </div>
 
         </div>
     )

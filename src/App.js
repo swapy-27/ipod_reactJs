@@ -112,7 +112,9 @@ class App extends React.Component {
     var songs =[]
     querySnapshot.map(
       (doc) => {
-        songs.push(doc.data());
+        let data = doc.data();
+        data['key']=doc.id;
+        songs.push(data);
         return null;
       }
     ) 
@@ -125,7 +127,8 @@ class App extends React.Component {
  
   }
 
-  handleSongClick = () => {
+  handleSongClick = (key) => {
+    
     this.setState(
       {
         show_play_screen:true
