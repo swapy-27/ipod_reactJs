@@ -1,16 +1,13 @@
 
 import '../css/music.css'
 
-import Playscreen from './Playscreen'
-
 const Allsongs = (props)=>{
   
     const songs =props.state.songs
     return (
-        <div>
+    
 
-      {
-      props.state.show_play_screen===false ? 
+     
          <div className ='music_list display_component'>
             {    
 
@@ -18,7 +15,7 @@ const Allsongs = (props)=>{
                      (song)=>{
                          
                          return (
-                             <div className='music_component' onClick={()=>{props.handleSongClick(song.key)}}>
+                             <div className='music_component' >
                                  {song.name}
                                  </div>
                          )
@@ -27,12 +24,9 @@ const Allsongs = (props)=>{
 
             }
                   
-         </div> 
-         :''
-      }
-      {
-            props.state.show_play_screen===true ? <Playscreen state={props.state}/>:''
-      }
+        
+       
+     
         </div>
     )
 }

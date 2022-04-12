@@ -1,6 +1,6 @@
 const Albums = (props)=>{
     return (
-        <div className ='music_component'>
+        <div className ='display_component'>
             Albums
         </div>
     )
